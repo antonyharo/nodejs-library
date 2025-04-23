@@ -2,34 +2,33 @@ const db = require("../config/db");
 
 module.exports = {
     getAll: async () => {
-        const [rows] = await db.query("SELECT * FROM users");
+        const [rows] = await db.query("SELECT * FROM books");
         return rows;
     },
 
     findById: async (id) => {
-        const [rows] = await db.query("SELECT * FROM users WHERE id = ?", [id]);
+        const [rows] = await db.query("SELECT * FROM books WHERE id = ?", [id]);
         return rows[0];
     },
 
     create: async (data) => {
-        const { name, email } = data;
+        const { title, price, description } = data;
         const [result] = await db.query(
-            "INSERT INTO users (name, email) VALUES (?, ?)",
-            [name, email]
+            "INSERT INTO books (title, price, description) VALUES (?, ?, ?)",
+            [title, price, description]
         );
-        return { id: result.insertId, name, email };
+        return { id: result.insertId, title, price };
     },
 
     update: async (id, data) => {
-        const { name, email } = data;
-        await db.query("UPDATE users SET name = ?, email = ? WHERE id = ?", [
-            name,
-            email,
-            id,
-        ]);
+        const { title, price, description } = data;
+        await db.query(
+            "UPDATE books SET title = ?, price = ?, description = ? WHERE id = ?",
+            [title, price, description, id]
+        );
     },
 
     delete: async (id) => {
-        await db.query("DELETE FROM users WHERE id = ?", [id]);
+        await db.query("DELETE FROM books WHERE id = ?", [id]);
     },
 };

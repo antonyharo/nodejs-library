@@ -1,46 +1,46 @@
-const User = require("../models/user");
+const Library = require("../models/library");
 
-// Listar usuários
+// Listar livros
 exports.index = async (req, res) => {
-    const users = await User.getAll();
-    res.render("users/index", { users });
+    const books = await Library.getAll();
+    res.render("library/index", { books });
 };
 
-// Formulário de novo usuário
+// Formulário de novo livro
 exports.new = (req, res) => {
-    res.render("users/new");
+    res.render("library/new");
 };
 
-// Criar novo usuário
+// Criar novo livro
 exports.create = async (req, res) => {
-    const { name, email } = req.body;
-    await User.create({ name, email });
-    res.redirect("/users");
+    const { title, price, description } = req.body;
+    await Library.create({ title, price, description });
+    res.redirect("/library");
 };
 
-// Detalhes do usuário
+// Detalhes do livro
 exports.show = async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).send("Usuário não encontrado");
-    res.render("users/show", { user });
+    const book = await Library.findById(req.params.id);
+    if (!book) return res.status(404).send("livro não encontrado");
+    res.render("library/show", { book });
 };
 
 // Formulário de edição
 exports.edit = async (req, res) => {
-    const user = await User.findById(req.params.id);
-    if (!user) return res.status(404).send("Usuário não encontrado");
-    res.render("users/edit", { user });
+    const book = await Library.findById(req.params.id);
+    if (!book) return res.status(404).send("livro não encontrado");
+    res.render("library/edit", { book });
 };
 
-// Atualizar usuário
+// Atualizar livro
 exports.update = async (req, res) => {
-    const { name, email } = req.body;
-    await User.update(req.params.id, { name, email });
-    res.redirect("/users");
+    const { title, price, description } = req.body;
+    await Library.update(req.params.id, { title, price, description });
+    res.redirect("/library");
 };
 
-// Deletar usuário
+// Deletar livro
 exports.destroy = async (req, res) => {
-    await User.delete(req.params.id);
-    res.redirect("/users");
+    await Library.delete(req.params.id);
+    res.redirect("/library");
 };

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= book.title %></title>
+    </head>
+    <body>
+        <h1><%= book.title %></h1>
+        <p><strong>Preço:</strong> R$ <%= book.price %></p>
+        <p><strong>Descrição:</strong> <%= book.description %></p>
+
+        <a href="/library">← Voltar</a>
+        <a href="/library/<%= book.id %>/edit">Editar</a>
+    </body>
+</html>

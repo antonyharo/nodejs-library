@@ -1,0 +1,26 @@
+{
+    "name": "empresa3agb",
+    "version": "1.0.0",
+    "description": "Site da Empresa com Login e CRUD e API",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "Login",
+        "Cadastro",
+        "Consulta",
+        "Alteração",
+        "Exclusão",
+        "API"
+    ],
+    "author": "Renan",
+    "license": "ISC",
+    "dependencies": {
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "method-override": "^3.0.0",
+        "mysql2": "^3.14.0",
+        "nodemon": "^3.1.9"
+    }
+}
