@@ -1,21 +1,16 @@
 {
-    "name": "empresa3agb",
+    "name": "library",
     "version": "1.0.0",
-    "description": "Site da Empresa com Login e CRUD e API",
+    "description": "Library CRUD app",
     "main": "app.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [
-        "Login",
-        "Cadastro",
-        "Consulta",
-        "Alteração",
-        "Exclusão",
-        "API"
+        "API",
+        "Books",
+        "Library"
     ],
-    "author": "Renan",
-    "license": "ISC",
     "dependencies": {
         "ejs": "^3.1.10",
         "express": "^5.1.0",
