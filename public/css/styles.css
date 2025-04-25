@@ -126,6 +126,7 @@ a {
     background-color: lightgreen;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
     padding: 0.6rem 1rem;
     border-radius: 4px;
