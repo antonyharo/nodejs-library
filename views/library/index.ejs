@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Livros</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Biblioteca</title>
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
-        <h1>Lista de Livros</h1>
-        <a href="/library/new">+ Novo Livro</a>
-        <ul>
+        <h1 class="title"><span class="icon">📚</span> Biblioteca</h1>
+        <a class="add-button" href="/library/new"
+            ><span style="font-size: 1.2em">+</span> Novo Livro</a
+        >
+        <ul class="book-container">
             <% books.forEach(book => { %>
-            <li>
-                <strong><%= book.title %></strong> - R$ <%= book.price %>
-                <a href="/library/<%= book.id %>">[ver]</a>
-                <a href="/library/<%= book.id %>/edit">[editar]</a>
-                <form
-                    action="/library/<%= book.id %>/delete"
-                    method="POST"
-                    style="display: inline"
-                >
-                    <button type="submit">[excluir]</button>
-                </form>
+            <li class="book">
+                <div>
+                    <strong><%= book.title %></strong> - R$ <%= book.price %>
+                </div>
+
+                <div class="book-actions">
+                    <a class="action" href="/library/<%= book.id %>/edit"
+                        >✏️
+                    </a>
+                    <form
+                        action="/library/<%= book.id %>/delete"
+                        method="POST"
+                        style="display: inline"
+                    >
+                        <button class="action" type="submit">🗑️</button>
+                    </form>
+                </div>
             </li>
             <% }) %>
         </ul>

@@ -1,22 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Novo Livro</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Novo</title>
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
-        <h1>Adicionar Novo Livro</h1>
+        <h1 class="title"><span class="icon">📕</span> Adicionar Novo Livro</h1>
         <form action="/library" method="POST">
-            <label>Título:</label><br />
-            <input type="text" name="title" required /><br />
+            <div class="input-group">
+                <label><span>📖</span> Título do Livro:</label>
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Título:"
+                    required
+                />
+            </div>
 
-            <label>Preço:</label><br />
-            <input type="number" step="0.01" name="price" required /><br />
+            <div class="input-group">
+                <label><span>💰</span> Preço:</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    name="price"
+                    placeholder="$00.00"
+                    required
+                />
+            </div>
 
-            <label>Descrição:</label><br />
-            <textarea name="description" required></textarea><br />
+            <div class="input-group">
+                <label><span>🧾</span> Descrição:</label>
+                <textarea
+                    name="description"
+                    placeholder="Descrição:"
+                    required
+                ></textarea>
+            </div>
 
-            <button type="submit">Salvar</button>
+            <button class="add-button" type="submit">Salvar</button>
         </form>
-        <a href="/library">← Voltar</a>
+        <a class="back-button" href="/library"
+            ><span class="icon"><-</span> Voltar</a
+        >
     </body>
 </html>

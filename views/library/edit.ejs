@@ -1,35 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title>Editar Livro</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Editando: <%= book.title %></title>
+        <link rel="stylesheet" href="/css/styles.css" />
     </head>
     <body>
-        <h1>Editando: <%= book.title %></h1>
+        <h1 class="title">
+            <span class="icon">✏️</span> Editando: <%= book.title %>
+        </h1>
         <form action="/library/<%= book.id %>?_method=PUT" method="POST">
-            <label>Título:</label><br />
-            <input
-                type="text"
-                name="title"
-                value="<%= book.title %>"
-                required
-            /><br />
+            <div class="input-group">
+                <label><span>📖</span> Título do Livro:</label>
+                <input
+                    type="text"
+                    name="title"
+                    value="<%= book.title %>"
+                    placeholder="Título:"
+                    required
+                />
+            </div>
 
-            <label>Preço:</label><br />
-            <input
-                type="number"
-                step="0.01"
-                name="price"
-                value="<%= book.price %>"
-                required
-            /><br />
+            <div class="input-group">
+                <label><span>💰</span> Preço:</label>
+                <input
+                    type="number"
+                    step="0.01"
+                    name="price"
+                    value="<%= book.price %>"
+                    placeholder="$00.00"
+                    required
+                />
+            </div>
 
-            <label>Descrição:</label><br />
-            <textarea name="description" required>
-<%= book.description %></textarea
-            ><br />
+            <div class="input-group">
+                <label><span>🧾</span> Descrição:</label>
+                <textarea name="description" placeholder="Descrição:" required>
+                <%= book.description %>
+            </textarea
+                >
+            </div>
 
-            <button type="submit">Salvar Alterações</button>
+            <button class="add-button" type="submit">Salvar</button>
         </form>
-        <a href="/library">← Voltar</a>
+        <a class="back-button" href="/library"
+            ><span class="icon"><-</span> Voltar</a
+        >
     </body>
 </html>
